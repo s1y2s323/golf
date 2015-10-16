@@ -33,7 +33,7 @@ class Tile : public Vector3d {
 
  public:
   Tile();
-  Tile(float xl, float yl, float zl);
+  Tile(float xl, float yl, float zl, float r = 0);
   virtual void draw(void);
   void update(std::vector <bool> controls,
 	      float x0 = 0, float y0 = 0, float z0 = 0);

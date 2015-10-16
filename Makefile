@@ -76,7 +76,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = moon$(EXEEXT)
+bin_PROGRAMS = golf$(EXEEXT)
 subdir = .
 DIST_COMMON = INSTALL NEWS README AUTHORS ChangeLog \
 	$(srcdir)/Makefile.in $(srcdir)/Makefile.am \
@@ -100,12 +100,12 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_moon_OBJECTS = src/main.$(OBJEXT) src/GolfGame.$(OBJEXT) \
+am_golf_OBJECTS = src/main.$(OBJEXT) src/GolfGame.$(OBJEXT) \
 	src/Course.$(OBJEXT) src/Game.$(OBJEXT) src/Club.$(OBJEXT) \
 	src/Ground.$(OBJEXT) src/Vector3d.$(OBJEXT) src/Tile.$(OBJEXT) \
 	src/Platform.$(OBJEXT) src/Font.$(OBJEXT)
-moon_OBJECTS = $(am_moon_OBJECTS)
-moon_LDADD = $(LDADD)
+golf_OBJECTS = $(am_golf_OBJECTS)
+golf_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -147,8 +147,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(moon_SOURCES)
-DIST_SOURCES = $(moon_SOURCES)
+SOURCES = $(golf_SOURCES)
+DIST_SOURCES = $(golf_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -282,7 +282,7 @@ top_builddir = .
 top_srcdir = .
 
 #files of project
-moon_SOURCES = src/main.cpp\
+golf_SOURCES = src/main.cpp\
 src/GolfGame.cpp\
 src/GolfGame.hpp\
 src/Course.cpp\
@@ -427,9 +427,9 @@ src/Platform.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/Font.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
-moon$(EXEEXT): $(moon_OBJECTS) $(moon_DEPENDENCIES) $(EXTRA_moon_DEPENDENCIES) 
-	@rm -f moon$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(moon_OBJECTS) $(moon_LDADD) $(LIBS)
+golf$(EXEEXT): $(golf_OBJECTS) $(golf_DEPENDENCIES) $(EXTRA_golf_DEPENDENCIES) 
+	@rm -f golf$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(golf_OBJECTS) $(golf_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

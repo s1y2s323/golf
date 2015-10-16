@@ -41,7 +41,7 @@ class Ground : public Vector3d {
  private:
   int dim;
   std::vector <std::vector<float> > elev;
-  void drawCircle(int x0, int y0, int radius, int height);
-  void createMountain(int x, int y, int width);
+  void drawCircle(int x0, int y0, int radius, int height = rand() % 3);
+  void createMountain(int x, int y, int width = rand() % 3);
   void createTerrain(void);
 };

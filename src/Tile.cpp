@@ -49,25 +49,29 @@ void Tile::update(std::vector <bool> controls,
   }
 
 
+  //spacebar
   if(controls[0]) {
-    
+    tileR += 10;
   }
 
-  if(controls[1]) {
-
-  }
-
+  //W
   if(controls[2]) {
 
   }
 
+  //A
   if(controls[3]) {
+    tileR += 10;
+  }
+
+  //S
+  if(controls[1]) {
 
   }
 
-
+  //D
   if(controls[4]) {
-    xv += .01;
+    tileR -= 10;
   }
 }
 
@@ -83,9 +87,9 @@ void Tile::update(std::vector <bool> controls,
 void Tile::draw(void) {
   glPushMatrix();
   glColor3ub(0, 100, 0);
+  glRotatef(tileR, 0, 0, 1);
   glTranslatef((x + 10), (z), (y));
   glutSolidCube(1);
-  //  glRotatef(tileR, 1, 0, 0);
   glPopMatrix();
 }
 
@@ -98,6 +102,7 @@ Tile::Tile() {
   xv = 0;
   yv = 0;
   zv = 0;
+  tileR = 0;
 }
 
 /*F***********************************************************
@@ -105,8 +110,9 @@ Tile::Tile() {
  * 
  * NOTES :   
  *F*/
-Tile::Tile(float xl, float yl, float zl) {
+Tile::Tile(float xl, float yl, float zl, float r) {
   x = xl;
   y = yl;
   z = zl;
+  tileR = r;
 }

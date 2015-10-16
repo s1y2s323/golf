@@ -37,7 +37,7 @@ void Ground::drawCircle(int x0, int y0,
   }
 }
 
-void Ground::createMountain(int x, int y, int width = rand() % 10) {
+void Ground::createMountain(int x, int y, int width) {
   for(int i = 0; i < width; ++i) {
     drawCircle(x, y, width - (i), i);
   }
@@ -120,7 +120,7 @@ Ground::Ground() {
     elev.push_back(row);
   }
 
-  createTerrain();
+  //  createTerrain();
 
   for(int i =  -(dim/2); i < (dim/2); ++i) {
     std::vector <Tile> row;

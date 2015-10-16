@@ -1,7 +1,7 @@
-bin_PROGRAMS = moon
+bin_PROGRAMS = golf
 
 #files of project
-moon_SOURCES = src/main.cpp\
+golf_SOURCES = src/main.cpp\
 src/GolfGame.cpp\
 src/GolfGame.hpp\
 src/Course.cpp\
