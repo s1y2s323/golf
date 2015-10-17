@@ -38,5 +38,6 @@ class Ship : public Vector3d {
  private:
   void animate(std::vector <bool> controls);
   float angle;
+  float clubR;
 
 };

@@ -21,51 +21,20 @@
  *F*/
 void Ship::animate(std::vector <bool> controls) {
 
+  //spacebar
   if(controls[0]) {
-    glPushMatrix();
-    glColor3ub(255, 0, 0);
-    glTranslatef(x, z + .5, y - 2);
-    glRotatef(25, 0.0, 1.0, 0.0);
-    glRotatef(angle, 0.0, 1.0, 0.0);
-    glutSolidTetrahedron();
-    glTranslatef(0.0, 0.0, -.8);
-    glPopMatrix();
+    clubR = 0;
   }
 
+  //W
+  if(controls[2]) {
+    clubR += 10;
+  }
+
+  //S
   if(controls[1]) {
-    glPushMatrix();
-    glColor3ub(255, 0, 0);
-    glTranslatef(x, z - 2, y -1);
-    glRotatef(25, 0.0, 1.0, 0.0);
-    glRotatef(angle, 0.0, 1.0, 0.0);
-    glutSolidTetrahedron();
-    glTranslatef(0.0, 0.0, -.8);
-    glPopMatrix();
+    clubR -= 10;
   }
-
-  if(controls[3]) {
-    glPushMatrix();
-    glColor3ub(255, 0, 0);
-    glTranslatef(x - 2, z, y -1);
-    glRotatef(25, 0.0, 1.0, 0.0);
-    glRotatef(angle, 0.0, 1.0, 0.0);
-    glutSolidTetrahedron();
-    glTranslatef(0.0, 0.0, -.8);
-    glPopMatrix();
-  }
-
-
-  if(controls[4]) {
-    glPushMatrix();
-    glColor3ub(255, 0, 0);
-    glTranslatef(x + 2, z, y -1);
-    glRotatef(25, 0.0, 1.0, 0.0);
-    glRotatef(angle, 0.0, 1.0, 0.0);
-    glutSolidTetrahedron();
-    glTranslatef(0.0, 0.0, -.8);
-    glPopMatrix();
-  }
-
 }
 
 /*F***********************************************************
@@ -77,6 +46,7 @@ Ship::Ship() {
   x = 10;
   y = 5;
   z = 0;
+  clubR = 0;
 }
 
 /*F***********************************************************
@@ -92,12 +62,18 @@ void Ship::draw(std::vector <bool> controls) {
 
   angle += 5;
   glPushMatrix();
-  glColor4f(.1, .2, .3, .8);
-  glTranslatef(x, z, y);
-  glutSolidSphere(1, 20, 20);
-  glTranslatef(0.0, 0.0, -.8);
+  glTranslatef(x, z, y - 4);
+  glRotatef(clubR, 1, 0, 0);
+  glPushMatrix();
   glColor3ub(96, 96, 96);
-  glutSolidTorus(.7, 1, 9, 9);
+  glScalef(2, .5, .5);
+  glTranslatef(.3, 0.0, 0.0);
+  glutSolidSphere(1, 20, 20);
+  glPopMatrix();
+  glColor3ub(0, 0, 255);
+  glScalef(.5, .5, 6);
+  glTranslatef(0, 0, .5);
+  glutSolidCube(1);
   glPopMatrix();
 
   animate(controls);
