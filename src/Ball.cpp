@@ -1,4 +1,4 @@
-#include "Tile.hpp"
+#include "Ball.hpp"
 
 /*F***********************************************************
  * 
@@ -37,27 +37,8 @@ inline void regulateVelocity(float &vel) {
  *           the game.
  *           
  *F*/
-void Tile::update(std::vector <bool> controls,
-		  float x0, float y0, float z0) {
+void Ball::update(float x0, float y0, float z0) {
 
-  //we are setting the ground
-  //when the user won the game
-  if(x0 || y0 || z0) {
-    x = x0;
-    y = y0;
-    z = z0;
-  }
-
-
-  //A
-  if(controls[3]) {
-    tileR += 10;
-  }
-
-  //D
-  if(controls[4]) {
-    tileR -= 10;
-  }
 }
 
 /*F***********************************************************
@@ -69,14 +50,13 @@ void Tile::update(std::vector <bool> controls,
  *
  * NOTES :   
  *F*/
-void Tile::draw(void) {
+void Ball::draw(void) {
   glPushMatrix();
   glTranslatef(10, 0, 0);
   glPushMatrix();
-  glColor3ub(0, 100, 0);
-  glRotatef(tileR, 0, 0, 1);
-  glTranslatef((x), (z), (y));
-  glutSolidCube(1);
+  glColor3ub(255, 255, 255);
+  glTranslatef((x), (z + 2), (y + 2));
+  glutSolidSphere(1, 20, 20);
   glPopMatrix();
   glPopMatrix();
 }
@@ -86,11 +66,10 @@ void Tile::draw(void) {
  * 
  * NOTES :   
  *F*/
-Tile::Tile() {
+Ball::Ball() {
   xv = 0;
   yv = 0;
   zv = 0;
-  tileR = 0;
 }
 
 /*F***********************************************************
@@ -98,9 +77,8 @@ Tile::Tile() {
  * 
  * NOTES :   
  *F*/
-Tile::Tile(float xl, float yl, float zl, float r) {
+Ball::Ball(float xl, float yl, float zl) {
   x = xl;
   y = yl;
   z = zl;
-  tileR = r;
 }

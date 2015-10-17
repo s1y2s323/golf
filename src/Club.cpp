@@ -28,12 +28,20 @@ void Ship::animate(std::vector <bool> controls) {
 
   //W
   if(controls[2]) {
-    clubR += 10;
+    clubR += 2;
   }
 
   //S
   if(controls[1]) {
-    clubR -= 10;
+    clubR -= 2;
+  }
+
+  if(clubR > 0) {
+    clubR = 0;
+  }
+
+  if(clubR < -30) {
+    clubR = -30;
   }
 }
 
@@ -62,7 +70,7 @@ void Ship::draw(std::vector <bool> controls) {
 
   angle += 5;
   glPushMatrix();
-  glTranslatef(x, z, y - 4);
+  glTranslatef(x, z + (clubR / 10), (y - 4.2));
   glRotatef(clubR, 1, 0, 0);
   glPushMatrix();
   glColor3ub(96, 96, 96);

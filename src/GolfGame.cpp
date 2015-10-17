@@ -15,14 +15,13 @@
  *
  * NOTES :   
  *F*/
-MoonGame::MoonGame() {
+GolfGame::GolfGame() {
 
   font = new Font();
-  fuelUsed = 0;
   for(int i = 0; i < 5; ++i) {
     controls.push_back(false);
   }
-  moon = new Moon();
+  course = new Course();
   glRotated(90, -1.0, 0.0, 0.0);
 }
 
@@ -31,7 +30,7 @@ MoonGame::MoonGame() {
  * 
  * NOTES :   
  *F*/
-MoonGame::~MoonGame() {}
+GolfGame::~GolfGame() {}
 
 /*F***********************************************************
  * 
@@ -42,7 +41,7 @@ MoonGame::~MoonGame() {}
  *
  * NOTES :   
  *F*/
-void MoonGame::run(void) {
+void GolfGame::run(void) {
 
   SDL_Event event;
   Uint32 start;
@@ -73,15 +72,15 @@ void MoonGame::run(void) {
     }
 
     if(!paused) {
-      while(moon->update(controls)) {
+      while(course->update(controls)) {
 	while(true) {
 	  //we won
-	  moon->draw(controls);
+	  course->draw(controls);
 	  keyboard(event, true);
 	}
       }
     }
-    moon->draw(controls);
+    course->draw(controls);
     SDL_RenderPresent(displayRenderer);
     if(1000/FPS > SDL_GetTicks() - start) {
       SDL_Delay(1000/FPS - (SDL_GetTicks() - start));
@@ -98,7 +97,7 @@ void MoonGame::run(void) {
  *
  * NOTES :   pause functionality needs work
  *F*/
-void MoonGame::keyboard(const SDL_Event &event, bool set) {
+void GolfGame::keyboard(const SDL_Event &event, bool set) {
 
   switch(event.key.keysym.scancode) {
 
@@ -135,7 +134,6 @@ void MoonGame::keyboard(const SDL_Event &event, bool set) {
 
     //up
   case SDL_SCANCODE_SPACE:
-    fuelUsed++;
     controls[0] = set;
     break;
   }

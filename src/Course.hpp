@@ -25,18 +25,20 @@
 #include <GL/freeglut.h>
 #include <GL/glu.h>
 #include <GL/gl.h>
+#include "Ball.hpp"
 #include "Club.hpp"
 #include "Ground.hpp"
 #include "Platform.hpp"
 
-class Moon {
+class Course {
 
  public:
-  Moon();
+  Course();
   bool update(std::vector <bool> controls);
   void draw(std::vector <bool> controls);
 
  private:
+  Ball *ball;
   Ship *ship;
   Ground *ground;
 };

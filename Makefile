@@ -103,7 +103,7 @@ am__dirstamp = $(am__leading_dot)dirstamp
 am_golf_OBJECTS = src/main.$(OBJEXT) src/GolfGame.$(OBJEXT) \
 	src/Course.$(OBJEXT) src/Game.$(OBJEXT) src/Club.$(OBJEXT) \
 	src/Ground.$(OBJEXT) src/Vector3d.$(OBJEXT) src/Tile.$(OBJEXT) \
-	src/Platform.$(OBJEXT) src/Font.$(OBJEXT)
+	src/Platform.$(OBJEXT) src/Font.$(OBJEXT) src/Ball.$(OBJEXT)
 golf_OBJECTS = $(am_golf_OBJECTS)
 golf_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
@@ -301,7 +301,9 @@ src/Tile.hpp\
 src/Platform.hpp\
 src/Platform.cpp\
 src/Font.hpp\
-src/Font.cpp
+src/Font.cpp\
+src/Ball.hpp\
+src/Ball.cpp
 
 AM_CXXFLAGS = -pedantic -O3 -std=c++14 -Werror -g 
 
@@ -426,6 +428,7 @@ src/Tile.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 src/Platform.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/Font.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
+src/Ball.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 golf$(EXEEXT): $(golf_OBJECTS) $(golf_DEPENDENCIES) $(EXTRA_golf_DEPENDENCIES) 
 	@rm -f golf$(EXEEXT)
@@ -438,6 +441,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include src/$(DEPDIR)/Ball.Po
 include src/$(DEPDIR)/Club.Po
 include src/$(DEPDIR)/Course.Po
 include src/$(DEPDIR)/Font.Po

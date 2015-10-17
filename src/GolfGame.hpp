@@ -30,11 +30,11 @@
 #include "Course.hpp"
 #include "Font.hpp"
 
-class MoonGame : public Game {
+class GolfGame : public Game {
 
  public:
-  MoonGame();
-  virtual ~MoonGame();
+  GolfGame();
+  virtual ~GolfGame();
   void run();
 
  private:
@@ -42,5 +42,5 @@ class MoonGame : public Game {
   void keyboard(const SDL_Event &event, bool set);
   unsigned int fuelUsed;
   std::vector<bool> controls;
-  Moon *moon;
+  Course *course;
 };

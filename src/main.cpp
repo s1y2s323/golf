@@ -18,7 +18,7 @@
  *F*/
 int main(int argc, char *argv[]) {
 
-  MoonGame *f = new MoonGame();
-  f->run();
+  GolfGame *g = new GolfGame();
+  g->run();
   return 0;
 }

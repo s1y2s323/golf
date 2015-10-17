@@ -44,7 +44,7 @@ void Ground::createMountain(int x, int y, int width) {
 }
 
 /*F***********************************************************
- * 
+ * createTerrain(void)
  * 
  * PURPOSE : Randomly generates a terrain
  *
@@ -52,7 +52,7 @@ void Ground::createMountain(int x, int y, int width) {
  *
  * NOTES :   function should be renamed to createTerrain
  *F*/
-void Ground::createTerrain() {
+void Ground::createTerrain(void) {
 
   for(int i = 20; i < elev.size() - 20; ++i) {
     for(int j = 20; j < elev.size() - 20; ++j) {
@@ -112,7 +112,7 @@ void Ground::update(std::vector <bool> controls) {
  *F*/
 Ground::Ground() {
 
-  dim = 50;
+  dim = 30;
   platform = new Platform(rand() % dim, rand () % dim);
 
   for(int i =  -(dim/2); i < (dim/2); ++i) {

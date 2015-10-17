@@ -57,7 +57,7 @@ src/Course.o: src/Course.cpp /usr/include/stdc-predef.h src/Course.hpp \
  /usr/include/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
  /usr/include/GL/freeglut_ext.h \
- /usr/lib/gcc/x86_64-redhat-linux/4.9.2/include/stdarg.h src/Club.hpp \
+ /usr/lib/gcc/x86_64-redhat-linux/4.9.2/include/stdarg.h src/Ball.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_config-x86_64.h /usr/include/SDL2/SDL_platform.h \
@@ -136,7 +136,7 @@ src/Course.o: src/Course.cpp /usr/include/stdc-predef.h src/Course.hpp \
  /usr/include/c++/4.9.2/bits/basic_ios.tcc \
  /usr/include/c++/4.9.2/bits/ostream.tcc /usr/include/c++/4.9.2/istream \
  /usr/include/c++/4.9.2/bits/istream.tcc /usr/include/c++/4.9.2/cmath \
- src/Ground.hpp src/Platform.hpp src/Tile.hpp
+ src/Club.hpp src/Ground.hpp src/Platform.hpp src/Tile.hpp
 
 /usr/include/stdc-predef.h:
 
@@ -298,7 +298,7 @@ src/Course.hpp:
 
 /usr/lib/gcc/x86_64-redhat-linux/4.9.2/include/stdarg.h:
 
-src/Club.hpp:
+src/Ball.hpp:
 
 /usr/include/SDL2/SDL.h:
 
@@ -555,6 +555,8 @@ src/Vector3d.hpp:
 /usr/include/c++/4.9.2/bits/istream.tcc:
 
 /usr/include/c++/4.9.2/cmath:
+
+src/Club.hpp:
 
 src/Ground.hpp:
 

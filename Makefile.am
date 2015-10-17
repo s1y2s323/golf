@@ -20,7 +20,9 @@ src/Tile.hpp\
 src/Platform.hpp\
 src/Platform.cpp\
 src/Font.hpp\
-src/Font.cpp
+src/Font.cpp\
+src/Ball.hpp\
+src/Ball.cpp
 
 AM_CXXFLAGS = -pedantic -O3 -std=c++14 -Werror -g 
 
