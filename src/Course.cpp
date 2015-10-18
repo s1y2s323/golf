@@ -22,8 +22,9 @@
 void Course::draw(std::vector <bool> controls) {
   
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glClearColor(.5, .5, .8, 0);
   ground->draw();
-  ship->draw(controls);
+  club->draw(controls);
   ball->draw();
 }
 
@@ -38,9 +39,15 @@ void Course::draw(std::vector <bool> controls) {
  *F*/
 bool Course::update(std::vector <bool> controls) {
  
-  ground->update(controls);
+  //spacebar pressed
+  if(controls[0]) {
+    ball->hit(club->clubSwing, ground->groundR);
+  }
 
-  //we did not win
+  ball->update(controls);
+  ground->update(controls);
+  club->update(controls);
+
   return false;
 }
 
@@ -57,6 +64,6 @@ Course::Course() {
   
   glRotatef(20, 1.0, 0.0, 0.0);
   ball = new Ball();
-  ship = new Ship();
+  club = new Club();
   ground = new Ground();
 }

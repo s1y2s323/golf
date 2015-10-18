@@ -37,6 +37,7 @@ class Ground : public Vector3d {
   void update(std::vector<bool> controls);
   std::vector <std::vector<Tile> > floor;
   Platform *platform;
+  float groundR;
 
  private:
   int dim;
@@ -44,4 +45,7 @@ class Ground : public Vector3d {
   void drawCircle(int x0, int y0, int radius, int height = rand() % 3);
   void createMountain(int x, int y, int width = rand() % 3);
   void createTerrain(void);
+
+protected:
 };
+

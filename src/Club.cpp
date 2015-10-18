@@ -19,29 +19,29 @@
  *
  * NOTES :   
  *F*/
-void Ship::animate(std::vector <bool> controls) {
+void Club::update(std::vector <bool> controls) {
 
   //spacebar
   if(controls[0]) {
-    clubR = 0;
+    clubSwing = 0;
   }
 
   //W
   if(controls[2]) {
-    clubR += 2;
+    clubSwing += 2;
   }
 
   //S
   if(controls[1]) {
-    clubR -= 2;
+    clubSwing -= 2;
   }
 
-  if(clubR > 0) {
-    clubR = 0;
+  if(clubSwing > 0) {
+    clubSwing = 0;
   }
 
-  if(clubR < -30) {
-    clubR = -30;
+  if(clubSwing < -30) {
+    clubSwing = -30;
   }
 }
 
@@ -50,11 +50,11 @@ void Ship::animate(std::vector <bool> controls) {
  * 
  * NOTES :   
  *F*/
-Ship::Ship() {
+Club::Club() {
   x = 10;
   y = 5;
   z = 0;
-  clubR = 0;
+  clubSwing = 0;
 }
 
 /*F***********************************************************
@@ -66,12 +66,11 @@ Ship::Ship() {
  *
  * NOTES :   Looks pretty awesome to me
  *F*/
-void Ship::draw(std::vector <bool> controls) {
+void Club::draw(std::vector <bool> controls) {
 
-  angle += 5;
   glPushMatrix();
-  glTranslatef(x, z + (clubR / 10), (y - 4.2));
-  glRotatef(clubR, 1, 0, 0);
+  glTranslatef(x - 1, (z + (clubSwing / 10)) - .2, (y - 3.7));
+  glRotatef(clubSwing, 1, 0, 0);
   glPushMatrix();
   glColor3ub(96, 96, 96);
   glScalef(2, .5, .5);
@@ -83,7 +82,4 @@ void Ship::draw(std::vector <bool> controls) {
   glTranslatef(0, 0, .5);
   glutSolidCube(1);
   glPopMatrix();
-
-  animate(controls);
-  //  glRotatef(.5, 1.0, 0.0, 0.0);
 }

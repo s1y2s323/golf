@@ -29,15 +29,15 @@
 #include <GL/gl.h>
 #include "Vector3d.hpp"
 
-class Ship : public Vector3d {
+class Club : public Vector3d {
 
  public:
-  Ship();
+  Club();
+  float clubSwing;
   void draw(std::vector <bool> controls);
+  void update(std::vector <bool> controls);
 
  private:
-  void animate(std::vector <bool> controls);
-  float angle;
-  float clubR;
 
+protected:
 };

@@ -20,9 +20,11 @@
  *
  * NOTES :   function name is rather verbos
  *F*/
-inline void regulateVelocity(float &vel) {
-  if(vel > .2) {
-    vel = .2;
+inline void regulateRotation(float &rot) {
+  if(rot > 360) {
+    rot = 0;
+  } else if(rot < 0) {
+    rot = 360;
   }
 }
 
@@ -48,7 +50,6 @@ void Tile::update(std::vector <bool> controls,
     z = z0;
   }
 
-
   //A
   if(controls[3]) {
     tileR += 10;
@@ -58,6 +59,8 @@ void Tile::update(std::vector <bool> controls,
   if(controls[4]) {
     tileR -= 10;
   }
+
+  regulateRotation(tileR);
 }
 
 /*F***********************************************************
@@ -71,13 +74,9 @@ void Tile::update(std::vector <bool> controls,
  *F*/
 void Tile::draw(void) {
   glPushMatrix();
-  glTranslatef(10, 0, 0);
-  glPushMatrix();
-  glColor3ub(0, 100, 0);
   glRotatef(tileR, 0, 0, 1);
   glTranslatef((x), (z), (y));
   glutSolidCube(1);
-  glPopMatrix();
   glPopMatrix();
 }
 
@@ -94,7 +93,7 @@ Tile::Tile() {
 }
 
 /*F***********************************************************
- * DEFAULT CONSTRUCTOR
+ * NON-DEFAULT CONSTRUCTOR
  * 
  * NOTES :   
  *F*/

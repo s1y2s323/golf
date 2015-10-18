@@ -77,12 +77,17 @@ void Ground::createTerrain(void) {
  *F*/
 void Ground::draw(void) {
 
+  glColor3ub(0, 100, 0);
+  glPushMatrix();
+  glTranslatef(10, 0, 0);
   for(int i = 0; i < floor.size(); ++i) {
     for(int j = 0; j < floor.size(); ++j) {
       floor[i][j].draw();
     }
   }
-  platform->draw();
+  glPopMatrix();
+
+  //  platform->draw();
   //  glRotatef(5, 1.0, 0.0, 0.0);
 }
 
@@ -112,7 +117,7 @@ void Ground::update(std::vector <bool> controls) {
  *F*/
 Ground::Ground() {
 
-  dim = 30;
+  dim = 50;
   platform = new Platform(rand() % dim, rand () % dim);
 
   for(int i =  -(dim/2); i < (dim/2); ++i) {

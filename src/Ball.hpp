@@ -21,6 +21,7 @@
 #include <windows.h>
 #endif
 
+#include <vector>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <GL/freeglut.h>
@@ -32,11 +33,12 @@ class Ball : public Vector3d {
 
  public:
   Ball();
-  Ball(float xl, float yl, float zl);
+  Ball(float xl, float yl, float zl, float ballR = 0);
   virtual void draw(void);
-  void update(float x0 = 0, float y0 = 0, float z0 = 0);
-
+  void update(std::vector <bool> controls);
+  void hit(float force, float clubR);
  private:
+  float ballR;
   float xv;
   float yv;
   float zv;

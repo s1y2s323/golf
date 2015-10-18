@@ -39,6 +39,6 @@ class Course {
 
  private:
   Ball *ball;
-  Ship *ship;
+  Club *club;
   Ground *ground;
 };

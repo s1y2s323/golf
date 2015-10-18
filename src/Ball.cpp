@@ -1,5 +1,4 @@
 #include "Ball.hpp"
-
 /*F***********************************************************
  * 
  * 
@@ -11,19 +10,17 @@
  *F*/
 
 /*F***********************************************************
- * regulateVelocity()
+ * hit(float force)
  * 
- * PURPOSE : makes sure we are not moving too fast in any
- *           given direction
+ * PURPOSE : 
  *
- * RETURN :  void
+ * RETURN :  
  *
- * NOTES :   function name is rather verbos
+ * NOTES :   
  *F*/
-inline void regulateVelocity(float &vel) {
-  if(vel > .2) {
-    vel = .2;
-  }
+void Ball::hit(float force, float clubR) {
+
+  z -= (force / 5);
 }
 
 /*F***********************************************************
@@ -33,12 +30,21 @@ inline void regulateVelocity(float &vel) {
  *
  * RETURN :  void
  *
- * NOTES :   default values are not used when the player won
- *           the game.
+ * NOTES :   
+ *           
  *           
  *F*/
-void Ball::update(float x0, float y0, float z0) {
+void Ball::update(std::vector <bool> controls) {
 
+  //A
+  if(controls[3]) {
+    ballR += 10;
+  }
+
+  //D
+  if(controls[4]) {
+    ballR -= 10;
+  }
 }
 
 /*F***********************************************************
@@ -55,7 +61,8 @@ void Ball::draw(void) {
   glTranslatef(10, 0, 0);
   glPushMatrix();
   glColor3ub(255, 255, 255);
-  glTranslatef((x), (z + 2), (y + 2));
+  glRotatef(ballR, 0, 0, 1);
+  glTranslatef((x), (z + .7), (y + 1.2));
   glutSolidSphere(1, 20, 20);
   glPopMatrix();
   glPopMatrix();
@@ -70,6 +77,7 @@ Ball::Ball() {
   xv = 0;
   yv = 0;
   zv = 0;
+  ballR = 0;
 }
 
 /*F***********************************************************
@@ -77,8 +85,9 @@ Ball::Ball() {
  * 
  * NOTES :   
  *F*/
-Ball::Ball(float xl, float yl, float zl) {
+Ball::Ball(float xl, float yl, float zl, float r) {
   x = xl;
   y = yl;
   z = zl;
+  ballR = r;
 }
