@@ -1,0 +1,57 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTryCompileExec2875227493/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2875227493.dir/build.make CMakeFiles/cmTryCompileExec2875227493.dir/build
+gmake[1]: Entering directory '/home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2875227493.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2875227493.dir/CheckSymbolExists.c.o   -c /home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2875227493
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2875227493.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2875227493.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2875227493 -rdynamic 
+CMakeFiles/cmTryCompileExec2875227493.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec2875227493.dir/build.make:88: recipe for target 'cmTryCompileExec2875227493' failed
+gmake[1]: Leaving directory '/home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTryCompileExec2875227493] Error 1
+Makefile:118: recipe for target 'cmTryCompileExec2875227493/fast' failed
+gmake: *** [cmTryCompileExec2875227493/fast] Error 2
+
+File /home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTryCompileExec57128828/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec57128828.dir/build.make CMakeFiles/cmTryCompileExec57128828.dir/build
+gmake[1]: Entering directory '/home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec57128828.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec57128828.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec57128828
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec57128828.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec57128828.dir/CheckFunctionExists.c.o  -o cmTryCompileExec57128828 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec57128828.dir/build.make:88: recipe for target 'cmTryCompileExec57128828' failed
+gmake[1]: Leaving directory '/home/bkeys/Devel/golf/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTryCompileExec57128828] Error 1
+Makefile:118: recipe for target 'cmTryCompileExec57128828/fast' failed
+gmake: *** [cmTryCompileExec57128828/fast] Error 2
+
+

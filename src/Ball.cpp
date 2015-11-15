@@ -20,7 +20,7 @@
  *F*/
 void Ball::hit(float force, float clubR) {
 
-  z -= (force / 5);
+  z -= (force);
 }
 
 /*F***********************************************************
